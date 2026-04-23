@@ -9,8 +9,7 @@ sampling_frequency = 1000
 try:
     dac = r2r.R2R_DAC(([16, 20, 21, 25, 26, 17, 27, 22]), amplitude, True)
     while True:
-        dac.set_voltage(amplitude * sg.get_sin_wave_amplitude(signal_frequency, time.monotonic()))
+        dac.set_voltage(amplitude * sg.get_triangle_wave_amplitude(signal_frequency, time.monotonic()))
         sg.wait_for_sampling_period(sampling_frequency)
 finally:
     dac.deinit()
- 
